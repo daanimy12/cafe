@@ -6,10 +6,9 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-     <app-recipes *ngIf="loadedFeature === 'receta'"></app-recipes>
-      <app-menu *ngIf="loadedFeature !== 'receta'"></app-menu>
+      <router-outlet></router-outlet>
     </div>
-    <app-contacto></app-contacto>
+    
   </div>
 </div>        
   

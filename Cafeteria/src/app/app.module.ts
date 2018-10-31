@@ -12,6 +12,7 @@ import { RecipesItemComponent } from './recipes/recipes-list/recipes-item/recipe
 import { RecipesCarruselComponent } from './recipes/recipes-carrusel/recipes-carrusel.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { MenuFooterComponent } from './menu/menu-footer/menu-footer.component';
+import { AppRoutingModule } from './app-routing-module';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { MenuFooterComponent } from './menu/menu-footer/menu-footer.component';
 
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [ingridientsService],
   bootstrap: [AppComponent]
