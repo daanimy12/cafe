@@ -1,31 +1,51 @@
 import { Recipe } from "../recipes/Recipes.model";
-import { EventEmitter } from "@angular/core";
+import { EventEmitter, Injectable } from "@angular/core";
 import { Ingredient } from "../shared/ingrediente.model";
+import { ingridientsService } from "./ingredients.service";
+import { Subject } from "rxjs";
 
 
 
-export class RecipeService {
+@Injectable()
+export class
+  RecipeService {
+  //recipeSelected = new EventEmitter<Recipe>();
 
-    recipeSelected = new EventEmitter<Recipe>();
+  RecipeEmit = new Subject<Recipe[]>();
+  RecipeEditing = new Subject<number>();
+  private recipes: Recipe[] = [
+    new Recipe('Tacos',
+      'tacos especiales',
+      'https://cocina-casera.com/mx/wp-content/uploads/2017/09/taco-de-carne.jpg',
+      [new Ingredient('breack', 2),
+      new Ingredient('cheese', 4)]),
 
-    private recipes: Recipe[] = [
-        new Recipe('AMERICANO', 'This is a simply test', 'http://assets.tiempo.com.mx/uploads/imagen/imagen/157569/cafe.jpg',
-            [ 
-            new Ingredient('bread',2),
-            new Ingredient('apple',2)
-            ]
-        ),
-        new Recipe('CAFE LATTE', 'This is a simply test', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmGvSnZRV2h3fHsv8x8ZJTGmHGrtLQCtc9R84dq2G6FlP-VRqb', [ 
-            new Ingredient('bread',2),
-            new Ingredient('apple',2)
-            ]),
-        
-        new Recipe('EXPRESSO', 'This is a simply test', 'https://ichef.bbci.co.uk/news/624/cpsprodpb/DE3F/production/_90059865_cafearriba.jpg', [ 
-            new Ingredient('bread',2),
-            new Ingredient('apple',2)
-            ])
-    ];
-    getRecipes() {
-        return this.recipes.slice();
-    }
+    new Recipe('hamburgesa', 'hamburgesa pequeña',
+      'https://www.recetas360.com/wp-content/uploads/2018/01/HAMBURGUESAS-DE-CARNE.jpg',
+      [new Ingredient('breack', 2), new Ingredient('Tomate', 4), new Ingredient('Peperoni', 5)])
+  ];
+  getRecipes() {
+    return this.recipes.slice();
+  }
+  constructor(private ingredientsService: ingridientsService) {
+
+  }
+  getRecipe(index: number) {
+    return this.recipes[index];
+  }
+  addIngredientsToShoppingList(ingredients: Ingredient[]) {
+    this.ingredientsService.addIngredients(ingredients);
+  }
+  DeleteRecipe(){
+    
+  }
+  addRecipe(recipe: Recipe) {
+    this.recipes.push(recipe);
+    this.RecipeEmit.next(this.recipes.slice());
+  }
+  updateRecipe(index: number, recipe: Recipe) {
+    this.recipes[index] = recipe;
+    this.RecipeEmit.next(this.recipes.slice());
+  }
+
 }
