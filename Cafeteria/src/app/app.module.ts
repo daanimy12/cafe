@@ -9,9 +9,9 @@ import { RecipesComponent } from './recipes/recipes.component';
 import { RecipesDetailComponent } from './recipes/recipes-detail/recipes-detail.component';
 import { RecipesListComponent } from './recipes/recipes-list/recipes-list.component';
 import { RecipesItemComponent } from './recipes/recipes-list/recipes-item/recipes-item.component';
-import { RecipesCarruselComponent } from './recipes/recipes-carrusel/recipes-carrusel.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { MenuFooterComponent } from './menu/menu-footer/menu-footer.component';
+import { CarruselComponent } from './carrusel/carrusel.component';
 
 
 @NgModule({
@@ -24,9 +24,9 @@ import { MenuFooterComponent } from './menu/menu-footer/menu-footer.component';
     RecipesDetailComponent,
     RecipesListComponent,
     RecipesItemComponent,
-    RecipesCarruselComponent,
     ContactoComponent,
     MenuFooterComponent,
+    CarruselComponent,
 
   ],
   imports: [
