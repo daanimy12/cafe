@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SubmenuComponent } from './submenu.component';
+import { GaleriaComponent } from './galeria.component';
 
-describe('SubmenuComponent', () => {
-  let component: SubmenuComponent;
-  let fixture: ComponentFixture<SubmenuComponent>;
+describe('GaleriaComponent', () => {
+  let component: GaleriaComponent;
+  let fixture: ComponentFixture<GaleriaComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SubmenuComponent ]
+      declarations: [ GaleriaComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SubmenuComponent);
+    fixture = TestBed.createComponent(GaleriaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

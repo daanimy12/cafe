@@ -14,9 +14,20 @@ import { RecipesDatailComponent } from './recipes/recipes-datail/recipes-datail.
 import { AppRoutingModule } from './app-routing.modules';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
-import { SubmenuComponent } from './menugeneral/submenu/submenu.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RecipeService } from './services/recipe.service';
+import { Routes, RouterModule } from '@angular/router';
+import { GaleriaComponent } from './galeria/galeria.component';
+import { MenuComponent } from './menu/menu.component';
 
-
+const appRoutes: Routes=[
+  {path:'',redirectTo:'/recipes',pathMatch:'full'},
+  {path:'recipes', component: RecipesComponent},
+  {path:'shoppinglist', component: ShoppingListComponent},
+  {path:'galeria',component: GaleriaComponent},
+  {path:'contact',component:ContactoComponent},
+  {path:'menu',component: MenuComponent}
+  ];
 
 @NgModule({
   declarations: [
@@ -32,16 +43,21 @@ import { SubmenuComponent } from './menugeneral/submenu/submenu.component';
     RecipesDatailComponent,
     ShoppingListComponent,
     ShoppingEditComponent,
-    SubmenuComponent,
+    GaleriaComponent,
+    MenuComponent,
 
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule, 
+     RouterModule.forRoot(appRoutes),
     
   ],
-  providers: [ingridientsService],
+  providers: [ingridientsService,
+    RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
