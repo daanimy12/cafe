@@ -11,7 +11,13 @@ import { RecipesListComponent } from './recipes/recipes-list/recipes-list.compon
 import { RecipesItemComponent } from './recipes/recipes-list/recipes-item/recipes-item.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { MenuFooterComponent } from './menu/menu-footer/menu-footer.component';
+<<<<<<< HEAD
 import { CarruselComponent } from './carrusel/carrusel.component';
+=======
+import { AppRoutingModule } from './app-routing-module';
+import { PRUEBAComponent } from './prueba/prueba.component';
+import { MenugeneralComponent } from './menugeneral/menugeneral.component';
+>>>>>>> c5c60898979ab6462fc2d607231a84eb46aadd0c
 
 
 @NgModule({
@@ -26,11 +32,18 @@ import { CarruselComponent } from './carrusel/carrusel.component';
     RecipesItemComponent,
     ContactoComponent,
     MenuFooterComponent,
+<<<<<<< HEAD
     CarruselComponent,
+=======
+    PRUEBAComponent,
+    MenugeneralComponent,
+>>>>>>> c5c60898979ab6462fc2d607231a84eb46aadd0c
 
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    
   ],
   providers: [ingridientsService],
   bootstrap: [AppComponent]
