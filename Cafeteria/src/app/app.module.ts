@@ -20,14 +20,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { GaleriaComponent } from './galeria/galeria.component';
 import { MenuComponent } from './menu/menu.component';
 
-const appRoutes: Routes=[
-  {path:'',redirectTo:'/recipes',pathMatch:'full'},
-  {path:'recipes', component: RecipesComponent},
-  {path:'shoppinglist', component: ShoppingListComponent},
-  {path:'galeria',component: GaleriaComponent},
-  {path:'contact',component:ContactoComponent},
-  {path:'menu',component: MenuComponent}
-  ];
+
 
 @NgModule({
   declarations: [
@@ -53,7 +46,7 @@ const appRoutes: Routes=[
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule, 
-     RouterModule.forRoot(appRoutes),
+
     
   ],
   providers: [ingridientsService,

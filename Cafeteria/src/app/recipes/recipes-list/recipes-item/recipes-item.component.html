@@ -1,4 +1,7 @@
-<a href="#" class="list-group-item list-group-item-action clearfix">
+<a style="cursor:pointer" class="list-group-item list-group-item-action clearfix"
+[routerLink]="[index]"
+routerLinkActive="active"
+>
 <div class="thumbnail">
   <img class="img-fluid" [src]="recipe.imagePath" alt="" width="300px">
   <div class="caption">
