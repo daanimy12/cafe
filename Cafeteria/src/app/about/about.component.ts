@@ -6,7 +6,7 @@ import { Datos } from './datos.model';
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.css']
+  styleUrls: ['./about.component.css','./resume.css','./resume.min.css']
 })
 export class AboutComponent implements OnInit {
   recipe:Datos;
