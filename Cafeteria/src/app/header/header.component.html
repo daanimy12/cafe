@@ -1,27 +1,39 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a style="cursor: pointer" class="navbar-brand" >Recipes</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  
-  <div class="collapse navbar-collapse" id="navbar">
-      <ul class="navbar-nav">
-         <li  class="nav-item"><a style="cursor: pointer" class="nav-link" href="">Recipes</a></li>
-         <li  class="nav-item"><a style="cursor: pointer" class="nav-link" href="/shoppinglist">Shopping List</a></li>
-         <li  class="nav-item"><a style="cursor: pointer" class="nav-link" href="/menu">Menu</a></li>
-         <li  class="nav-item"><a style="cursor: pointer" class="nav-link" href="/galeria">galeria</a></li>
-         <li  class="nav-item"><a style="cursor: pointer" class="nav-link" href="/contact">contacto</a></li>
 
-         <li class="nav-item dropdown ">
-              <a style="cursor: pointer"  class="nav-link dropdown-toggle " id="navbarDropdown" data-toggle="dropdown">
-                   Manage 
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a style="cursor: pointer" class="dropdown-item">Save Data</a>
-                <a style="cursor: pointer" class="dropdown-item">Fetch Data</a>
-              </div>
-           </li>
-       </ul>
-  </div> 
-</nav>
-  
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <span class="d-block d-lg-none">Clarence Taylor</span>
+        <span class="d-none d-lg-block">
+          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="https://m.media-amazon.com/images/M/MV5BMTM1NjExNjg1OV5BMl5BanBnXkFtZTcwMTQ0NzIwMw@@._V1_UY317_CR1,0,214,317_AL_.jpg" alt="">
+        </span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" (click)='onAbout()'>About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" routerLink="/home/experiencia">Experience</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" routerLink="/home/education">Education</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" routerLink="/home/skills">Skills</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" routerLink="/home/interests">Interests</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" routerLink="/home/awards">Awards</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" routerLink="/login">Salir</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    

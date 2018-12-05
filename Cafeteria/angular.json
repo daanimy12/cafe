@@ -24,10 +24,18 @@
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "src/font.1.css",
+              "src/font.css",
+              "src/icons.css",
+              
+              "src/resume.css",
+              "src/resume.min.css",
+              "node_modules/bootstrap/dist/css/bootstrap.css"
               
             ],
             "scripts": [
+              "src/app/js/resume.js",
+              "src/app/js/resume.min.js",
               "node_modules/popper.js/dist/umd/popper.js", 
               "node_modules/jquery/dist/jquery.js",
               "node_modules/bootstrap/dist/js/bootstrap.js"

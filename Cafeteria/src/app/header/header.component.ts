@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,12 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
  
-  constructor() { }
+  constructor( private router:Router,private route:ActivatedRoute) { }
   
   ngOnInit() {     
   }
+onAbout(){
+  this.router.navigate(['about'],{relativeTo:this.route})
+}
 
 }

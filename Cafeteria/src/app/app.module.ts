@@ -20,6 +20,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { GaleriaComponent } from './galeria/galeria.component';
 import { MenuComponent } from './menu/menu.component';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { CarrouselComponent } from './carrousel/carrousel.component';
+import { AboutComponent } from './about/about.component';
+import { ExperienciaComponent } from './experiencia/experiencia.component';
+import { EducacionComponent } from './educacion/educacion.component';
+import { SkillsComponent } from './skills/skills.component';
+import { InterestsComponent } from './interests/interests.component';
+import { AwardsComponent } from './awards/awards.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -38,7 +47,15 @@ import { MenuComponent } from './menu/menu.component';
     ShoppingEditComponent,
     GaleriaComponent,
     MenuComponent,
-
+    CarrouselComponent,
+    AboutComponent,
+    ExperienciaComponent,
+    EducacionComponent,
+    SkillsComponent,
+    InterestsComponent,
+    AwardsComponent,
+    LoginComponent,
+ 
 
   ],
   imports: [
@@ -46,7 +63,7 @@ import { MenuComponent } from './menu/menu.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule, 
-
+NgbModule
     
   ],
   providers: [ingridientsService,
