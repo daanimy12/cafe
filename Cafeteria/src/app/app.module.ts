@@ -29,6 +29,7 @@ import { SkillsComponent } from './skills/skills.component';
 import { InterestsComponent } from './interests/interests.component';
 import { AwardsComponent } from './awards/awards.component';
 import { LoginComponent } from './login/login.component';
+import { EjemploComponent } from './ejemplo/ejemplo.component';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { LoginComponent } from './login/login.component';
     InterestsComponent,
     AwardsComponent,
     LoginComponent,
+    EjemploComponent,
  
 
   ],
