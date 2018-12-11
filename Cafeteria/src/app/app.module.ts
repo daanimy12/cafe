@@ -32,6 +32,7 @@ import { LoginComponent } from './login/login.component';
 import { CreateuserComponent } from './createuser/createuser.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,6 +58,7 @@ import { CreateuserComponent } from './createuser/createuser.component';
     AwardsComponent,
     LoginComponent,
     CreateuserComponent,
+   
  
 
   ],
