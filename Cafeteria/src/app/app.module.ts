@@ -30,6 +30,7 @@ import { InterestsComponent } from './interests/interests.component';
 import { AwardsComponent } from './awards/awards.component';
 import { LoginComponent } from './login/login.component';
 import { CreateuserComponent } from './createuser/createuser.component';
+import { ExampleComponent } from './example/example.component';
 
 
 
@@ -58,6 +59,7 @@ import { CreateuserComponent } from './createuser/createuser.component';
     AwardsComponent,
     LoginComponent,
     CreateuserComponent,
+    ExampleComponent,
    
  
 
