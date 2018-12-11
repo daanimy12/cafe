@@ -3,6 +3,8 @@ import { Datos } from '../about/datos.model';
 import { FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
 import { RecipeService } from '../services/recipe.service';
+import { Auth } from '../services/ingredients.service';
+import { Validar } from '../shared/ingrediente.model';
 
 @Component({
   selector: 'app-awards',
@@ -13,15 +15,18 @@ export class AwardsComponent implements OnInit {
   id:number;
   editMode=true;
   valor=Datos;
+  recipe:Validar;
   recipeForm:FormGroup;
-  constructor(private route:ActivatedRoute,private recipeService:RecipeService) { }
+  constructor(private route:ActivatedRoute,private recipeService:RecipeService,private d:Auth) { }
 
   ngOnInit() {
     this.route.params.subscribe((params:Params)=>{
-  this.id=0;
-  //+params['id'];
-  //this.editMode=params['id']!=null;
-  console.log(this.editMode);
+     
+        this.id=+this.d.getIngredient(0).name;
+         
+    
+ 
+  
   this.initForm();
     });
     }
@@ -48,7 +53,7 @@ export class AwardsComponent implements OnInit {
   //ingredients
 
   if(this.editMode){
-  const recipe=this.recipeService.getRecipe(0);
+  const recipe=this.recipeService.getRecipe(this.id);
   cvusername=recipe.username;
    cvpass=recipe.pass;
    cvname=recipe.name;

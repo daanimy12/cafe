@@ -4,7 +4,8 @@ import { RecipeService } from '../services/recipe.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Recipes } from '../recipes/recipes.model';
 import { Datos } from '../about/datos.model';
-import { ingridientsService } from '../services/ingredients.service';
+import { Auth } from '../services/ingredients.service';
+
 
 @Component({
   selector: 'app-createuser',
@@ -13,18 +14,24 @@ import { ingridientsService } from '../services/ingredients.service';
 })
 export class CreateuserComponent implements OnInit {
   id:number;
-  editMode=true;
+  editMode=false;
   valor=Datos;
   recipeForm:FormGroup;
-  constructor(private router:Router,private route:ActivatedRoute,private recipeService:RecipeService) { }
+  constructor(private router:Router,private route:ActivatedRoute,private recipeService:RecipeService,private d:Auth) { }
 
   ngOnInit() {
     this.route.params.subscribe((params:Params)=>{
-  this.id=0;
-  //+params['id'];
-  //this.editMode=params['id']!=null;
-  console.log(this.editMode);
-  this.initForm();
+      this.editMode=this.id!=null;
+      
+      if(this.editMode==false){
+
+      }else{
+        this.id=+this.d.getIngredient(0).name;
+      }
+      
+      console.log(this.editMode);
+     this.initForm();
+    
     });
     }
     private initForm(){
@@ -50,7 +57,7 @@ export class CreateuserComponent implements OnInit {
   //ingredients
 
   if(this.editMode){
-  const recipe=this.recipeService.getRecipe(0);
+  const recipe=this.recipeService.getRecipe(this.id);
   cvusername=recipe.username;
    cvpass=recipe.pass;
    cvname=recipe.name;
@@ -59,8 +66,7 @@ export class CreateuserComponent implements OnInit {
    cvcity=recipe.city;
    cvuniversity=recipe.university;
    cvcareer=recipe.career;
-   cvdireccion=recipe.direccion
-   ;
+   cvdireccion=recipe.direccion;
    cvdescription=recipe.descripcion;
    cvcp=recipe.cp;
    cvsexo=recipe.sexo;
@@ -70,7 +76,6 @@ export class CreateuserComponent implements OnInit {
 
  
 
-  console.log(recipe)
   
   }
   this.recipeForm=new FormGroup({
@@ -103,12 +108,13 @@ export class CreateuserComponent implements OnInit {
     )
     }
     onSubmit(){
-    console.log(this.recipeForm)
+this.AddCV();
     
   
     }
     AddCV(){
-     let cvusername=this.recipeForm.get('name').value;
+    
+      let cvusername=this.recipeForm.get('name').value;
       let cvpass=this.recipeForm.get('pass').value;
       let cvname=this.recipeForm.get('name').value;
       let cvcellphone=this.recipeForm.get('cellphone').value;
@@ -122,10 +128,23 @@ export class CreateuserComponent implements OnInit {
       let cvsexo=this.recipeForm.get('sexo').value;
       let cvImagePath=this.recipeForm.get('image').value;
       const newIngredient = new this.valor(cvusername,cvpass,cvname,cvcellphone,cvmail,cvcity,cvuniversity,cvcareer,cvdireccion,cvdescription,cvcp,cvsexo,cvImagePath);
-  this.recipeService.addRecipe(newIngredient);
-  console.log(this.recipeService.getRecipe(1));
-  this.router.navigate(['/login'],
-    {relativeTo:this.route})
+  ;
+  
+  if(this.editMode==false){
+    this.recipeService.addRecipe(newIngredient)
+    this.router.navigate(['/login'], {relativeTo:this.route});
+  
+  }else{
+
+this.recipeService.updateRecipe(this.id,newIngredient);
+this.router.navigate(['/about'], {relativeTo:this.route});
+console.log(this.recipeService.getRecipe(this.id));
+}
+ 
+   
     }
+
+
+
     
   }

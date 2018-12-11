@@ -1,57 +1,56 @@
 import { EventEmitter } from "@angular/core";
-import { Ingredient } from "../shared/ingrediente.model";
+import {  Validar } from "../shared/ingrediente.model";
 import { Subject } from "rxjs";
 
-export class ingridientsService {
+export class Auth {
     //Cambiarlo a un Subject
    // ingredientEmit = new EventEmitter<Ingredient[]>();
-   ingredientEmit = new Subject<Ingredient[]>();
+   ingredientEmit = new Subject<Validar[]>();
     startedEditing =  new Subject<number>();
-    private ingredients: Ingredient[]=[
-        new Ingredient('Tomate', 5),
-        new Ingredient('Apples',3),
+    private validars: Validar[]=[
+        
     ];
 
     getIngredient(index : number){
-        return this.ingredients[index];
+        return this.validars[index];
     }
     getIngredientes(){
-        return this.ingredients.slice();
+        return this.validars.slice();
     }
-    updateIngredient(index: number, ingredient: Ingredient){
-        this.ingredients[index]=ingredient;
-        this.ingredientEmit.next(this.ingredients.slice());
+    updateIngredient(index: number, ingredient: Validar){
+        this.validars[index]=ingredient;
+        this.ingredientEmit.next(this.validars.slice());
     }
-    addIngredient(ingredient : Ingredient){
-        this.ingredients.push(ingredient);
-        this.ingredientEmit.next(this.ingredients.slice());
+    addIngredient(ingredient : Validar){
+        this.validars.push(ingredient);
+        this.ingredientEmit.next(this.validars.slice());
     }
-    addIngredients(auxIngredients: Ingredient[]){
+    // addIngredients(auxIngredients:Validar[]){
         
-        for(const i of auxIngredients){
-            var NombreMA = this.ingredients.find((x, index)=>{
-               if( x.name == i.name ){
-                    this.ingredients[index].amount = this.ingredients[index].amount + i.amount;
-                    return true;
-               }else{
+    //     for(const i of auxIngredients){
+    //         var NombreMA = this.ingredients.find((x, index)=>{
+    //            if( x.name == i.name ){
+    //                 this.ingredients[index].amount = this.ingredients[index].amount + i.amount;
+    //                 return true;
+    //            }else{
                    
-                   return false;
-               }
+    //                return false;
+    //            }
          
-            });
+    //         });
             
-            if(NombreMA != null){
+    //         if(NombreMA != null){
               
-            }else{
-                this.ingredients.push(i);
-            }
-            this.ingredientEmit.next(this.ingredients.slice());
+    //         }else{
+    //             this.ingredients.push(i);
+    //         }
+    //         this.ingredientEmit.next(this.ingredients.slice());
             
-        }
-    }
+    //     }
+    // }
     DeleteIngredient(index: number){
-        this.ingredients.splice(index,1);
-        this.ingredientEmit.next(this.ingredients.slice());
+        this.validars.splice(index,1);
+        this.ingredientEmit.next(this.validars.slice());
     }
    
 }

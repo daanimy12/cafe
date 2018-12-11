@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { ingridientsService } from './services/ingredients.service';
+import { Auth } from './services/ingredients.service';
 import { RecipesComponent } from './recipes/recipes.component';
 import { RecipesDetailComponent } from './recipes/recipes-detail/recipes-detail.component';
 import { RecipesListComponent } from './recipes/recipes-list/recipes-list.component';
@@ -70,7 +70,7 @@ import { CreateuserComponent } from './createuser/createuser.component';
 NgbModule
     
   ],
-  providers: [ingridientsService,
+  providers: [Auth,
     RecipeService],
   bootstrap: [AppComponent]
 })

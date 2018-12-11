@@ -1,7 +1,6 @@
 import { Datos } from "../about/datos.model";
 import { EventEmitter, Injectable } from "@angular/core";
-import { Ingredient } from "../shared/ingrediente.model";
-import { ingridientsService } from "./ingredients.service";
+
 import { Subject } from "rxjs";
 
 
@@ -27,7 +26,7 @@ export class
   getDato() {
     return this.datos.slice();
   }
-  constructor(private ingredientsService: ingridientsService) {
+  constructor() {
 
   }
   getRecipe(index: number) {
@@ -42,11 +41,9 @@ export class
     return this.datos.findIndex(x => x.mail == cade);
     }
   
-  addIngredientsToShoppingList(ingredients: Ingredient[]) {
-    this.ingredientsService.addIngredients(ingredients);
-  }
+
   DeleteRecipe(){
-    
+    this.datos.splice(0,1);
   }
   addRecipe(datos:Datos ) {
     this.datos.push(datos);

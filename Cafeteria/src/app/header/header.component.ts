@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { RecipeService } from '../services/recipe.service';
 import { Datos } from '../about/datos.model';
+import { Auth } from '../services/ingredients.service';
 
 @Component({
   selector: 'app-header',
@@ -11,17 +12,15 @@ import { Datos } from '../about/datos.model';
 export class HeaderComponent implements OnInit {
  id:number;
 private recipe: Datos;
- constructor( private router:Router,private route:ActivatedRoute,private reci:RecipeService) { }
+ constructor( private router:Router,private route:ActivatedRoute,private reci:RecipeService,private r:Auth) { }
   
   ngOnInit() {     
-    this.route.params
-    .subscribe((param:Params)=>{
-   this.id=+param['home/:id']|| 0;
+    this.route.params.subscribe((params:Params)=>{
+      this.id=+this.r.getIngredient(0).name;
+    this.recipe=this.reci.getRecipe(this.id);    
+    });
 
- this.recipe = this.reci.getRecipe(0);
-  
 
-});
 }
 onAbout(navegador:string){
   this.router.navigate([navegador],

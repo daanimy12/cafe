@@ -1,6 +1,6 @@
-export class Ingredient{
+export class Validar{
    
 
-  constructor(public name:string, public amount:number){
+  constructor(public name:number){
   } 
 }

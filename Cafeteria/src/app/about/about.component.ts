@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 import { RecipeService } from '../services/recipe.service';
 import { ActivatedRoute, Router, Params, NavigationEnd } from '@angular/router';
 import { Datos } from './datos.model';
+import { Auth } from '../services/ingredients.service';
 
 
 
@@ -17,15 +18,15 @@ export class AboutComponent implements OnInit {
   urlTree:string;
   providers: [RecipeService];
   
-  constructor(private re:RecipeService,private router:Router, private route: ActivatedRoute) {
+  constructor(private re:RecipeService,private router:Router, private route: ActivatedRoute,private d:Auth) {
   
  
    }
 
   ngOnInit() {
     this.route.params.subscribe((params:Params)=>{
-      this.id=0;
-  this.recipe=this.re.getRecipe(0);    
+    this.id=+this.d.getIngredient(0).name;
+  this.recipe=this.re.getRecipe(this.id);    
   });
 
 } }  
