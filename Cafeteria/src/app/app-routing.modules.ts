@@ -11,6 +11,8 @@ import { AwardsComponent } from "./awards/awards.component";
 import { LoginComponent } from "./login/login.component";
 import { HeaderComponent } from "./header/header.component";
 import { MenuComponent } from "./menu/menu.component";
+import { CreateuserComponent } from "./createuser/createuser.component";
+import { AuthGuard } from "./guards/auth.guard";
 
 const routes: Routes=[
     {path:'',redirectTo:'/login',pathMatch:'full'},
@@ -19,12 +21,12 @@ const routes: Routes=[
 
     
     {path:'login', component: LoginComponent},
-    
-
-    { 
-        path: 'home', component:MenuComponent,children:[
-           
-            {path:'about', component: AboutComponent},
+    {path:'newuser', component: CreateuserComponent},
+{path:'home/:id',component:MenuComponent,canActivate:[AuthGuard]}
+    ,{ 
+        path: 'home/:id', component:MenuComponent,children:[
+            
+            {path:'about',component: AboutComponent} , 
     {path:'experiencia',component: ExperienciaComponent},
     {path:'education',component:EducacionComponent},
     

@@ -14,9 +14,12 @@ export class
   RecipeEmit = new Subject<Datos[]>();
   RecipeEditing = new Subject<number>();
   private datos: Datos[] = [
-    new Datos('JOEL VARGAS OSORIO',
-      'Calle Benito Juarez 44','https://cocina-casera.com/mx/wp-content/uploads/2017/09/taco-de-carne.jpg','Tehuacan',
-      '75809',"2381632777",'joel.kins@hotmail.com','JOVEN TRABAJADOR CAPAZ DE TODO'),
+    new Datos('joelkins','1998joel','JOEL VARGAS OSORIO',"2381632777",'joel.kins@hotmail.com','Tehuacan','UTTEHUACAN','TIC',
+      'Calle Benito Juarez 44','Dar a conocer los servicios de la mas alta calidad.','75809','M','https://cocina-casera.com/mx/wp-content/uploads/2017/09/taco-de-carne.jpg'
+      ),
+      new Datos('joelkins','1998joel','JOEL VARGAS OSORIO 2',"2381632777",'joel.kins40@gmail.com','Tehuacan','UTTEHUACAN','TIC',
+      'Calle Benito Juarez 44','Dar a conocer los servicios de la mas alta calidad.','75809','M','https://cocina-casera.com/mx/wp-content/uploads/2017/09/taco-de-carne.jpg'
+      ),
     
 
 
@@ -30,6 +33,15 @@ export class
   getRecipe(index: number) {
     return this.datos[index];
   }
+
+  getcuenta(cadena:string){
+   return this.datos.find(x => x.mail == cadena);
+
+    }
+    getindex(cade:string){
+    return this.datos.findIndex(x => x.mail == cade);
+    }
+  
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
     this.ingredientsService.addIngredients(ingredients);
   }

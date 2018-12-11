@@ -1,20 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { Datos } from '../about/datos.model';
 import { FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute, Params } from '@angular/router';
 import { RecipeService } from '../services/recipe.service';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Recipes } from '../recipes/recipes.model';
+import { Datos } from '../about/datos.model';
+import { ingridientsService } from '../services/ingredients.service';
 
 @Component({
-  selector: 'app-awards',
-  templateUrl: './awards.component.html',
-  styleUrls: ['./awards.component.css','./resume.css','./resume.min.css']
+  selector: 'app-createuser',
+  templateUrl: './createuser.component.html',
+  styleUrls: ['./createuser.component.css']
 })
-export class AwardsComponent implements OnInit {
+export class CreateuserComponent implements OnInit {
   id:number;
   editMode=true;
   valor=Datos;
   recipeForm:FormGroup;
-  constructor(private route:ActivatedRoute,private recipeService:RecipeService) { }
+  constructor(private router:Router,private route:ActivatedRoute,private recipeService:RecipeService) { }
 
   ngOnInit() {
     this.route.params.subscribe((params:Params)=>{
@@ -122,6 +124,8 @@ export class AwardsComponent implements OnInit {
       const newIngredient = new this.valor(cvusername,cvpass,cvname,cvcellphone,cvmail,cvcity,cvuniversity,cvcareer,cvdireccion,cvdescription,cvcp,cvsexo,cvImagePath);
   this.recipeService.addRecipe(newIngredient);
   console.log(this.recipeService.getRecipe(1));
+  this.router.navigate(['/login'],
+    {relativeTo:this.route})
     }
     
   }
